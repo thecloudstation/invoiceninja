@@ -32,10 +32,10 @@ php artisan migrate --force || true
 echo "Running database seeder..."
 php artisan db:seed --force || true
 
-# Create admin user if IN_USER_EMAIL and IN_PASSWORD are set
+# Create admin account if IN_USER_EMAIL and IN_PASSWORD are set
 if [ -n "$IN_USER_EMAIL" ] && [ -n "$IN_PASSWORD" ]; then
-  echo "Creating admin user: $IN_USER_EMAIL"
-  php artisan ninja:create-account --email="$IN_USER_EMAIL" --password="$IN_PASSWORD" 2>/dev/null || true
+  echo "Creating admin account: $IN_USER_EMAIL"
+  php artisan ninja:create-account --email="$IN_USER_EMAIL" --password="$IN_PASSWORD" || true
 fi
 
 # Design updates
